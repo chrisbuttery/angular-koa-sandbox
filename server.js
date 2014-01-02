@@ -1,4 +1,3 @@
-var render = require('./lib/render');
 var logger = require('koa-logger');
 var route = require('koa-route');
 var views = require('co-views');
@@ -11,6 +10,11 @@ app.use(logger());
 
 // route middleware
 app.use(route.get('/', index));
+
+// setup views mapping .html to the swig template engine
+var render =  views(__dirname + '/views', {
+  map: { html: 'swig' }
+});
 
 // route definitions
 function *index() {
