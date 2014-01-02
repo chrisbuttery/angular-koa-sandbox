@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+ <html ng-app="myApp">
+   <head>
+     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js'></script>
+     <script type="text/javascript">
+        // get SWIG to play with Angular: {{}} to [[]]
+        var myApp = angular.module('myApp', [], function ($interpolateProvider) {
+          $interpolateProvider.startSymbol('[[');
+          $interpolateProvider.endSymbol(']]');
+        });
+      </script>
+     <script>
+       function Clock($scope) {
+         $scope.currentTime = new Date();
+       }
+     </script>
+     <title>koajs + angularJS</title>
+   </head>
+   <body>
+     <h1>Playing with koajs and angularJS.</h1>
+     <p ng-controller='Clock'>
+         The current time is [[currentTime | date:'h:mm:ss a']].
+       <p>
+   </body>
+ </html>
