@@ -1,16 +1,19 @@
-var logger = require('koa-logger');
-var route = require('koa-route');
-var views = require('co-views');
-var koa = require('koa');
-var app = koa();
+var path = require('path');
+    logger = require('koa-logger'),
+    route = require('koa-route'),
+    views = require('co-views'),
+    koa = require('koa'),
+    serve = require('koa-static'),
+    app = koa();
 
 // middleware
 app.use(logger());
 
 // route middleware
 app.use(route.get('/', index));
+app.use(serve(path.join(__dirname, 'public')));
 
-// setup views mapping .html to the swig template engine
+// setup koa views, mapping html to the swig template engine
 var render =  views(__dirname + '/views', {
   map: { html: 'swig' }
 });
