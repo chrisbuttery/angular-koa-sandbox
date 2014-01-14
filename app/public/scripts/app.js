@@ -1,22 +1,41 @@
-var guidebookConfig = function($routeProvider) {
-  $routeProvider
-    .when('/', {
-      controller: 'ChaptersController',
-      templateUrl: 'scripts/view/chapters.html'
-    })
-    .when('/chapter/:chapterId', {
-      controller: 'ChaptersController',
-      templateUrl: 'scripts/view/chapters.html'
-    })
-    .when('/addNote/:chapterId', {
-      controller: 'AddNoteController',
-      templateUrl: 'scripts/view/addNote.html'
-    })
-    .when('/deleteNote/:chapterId/:noteId', {
-      controller: 'DeleteNoteController',
-      templateUrl: 'scripts/view/addNote.html'
-    })
-  ;
-};
+'use strict';
 
-var Guidebook = angular.module('Guidebook', []).config(guidebookConfig);
+var tempApp = angular.module('tempApp', ['serviceModule']).config(
+  ['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/current', {
+      templateUrl: '../scripts/views/current.html',
+      controller: 'CurrentCtrl'
+    });
+    $routeProvider.when('/history', {
+      templateUrl: '../scripts/views/history.html',
+      controller: 'HistoryCtrl'
+    });
+    $routeProvider.otherwise({
+      redirectTo: '/current'
+    });
+  }]
+);
+
+/**
+ * Filters
+ */
+tempApp.filter('plusFifteen', [ function() {
+  return function(arrTemp) {
+    var arrReturn = new Array();
+    angular.forEach(arrTemp, function(value, key){
+      if(value.temp>=15) arrReturn.push(value);
+    });
+    return arrReturn;
+  };
+}]);
+
+tempApp.filter('minimum', [ function() {
+  return function(arrTemp, minimum) {
+    var arrReturn = new Array();
+    var min = minimum ? minimum : 15;
+    angular.forEach(arrTemp, function(value, key){
+      if(value.temp>=min) arrReturn.push(value);
+    });
+    return arrReturn;
+  };
+}]);

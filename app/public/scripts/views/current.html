@@ -1,0 +1,10 @@
+<!--   Current temperature: <input ng-model='temp' type='number'/> Celcius
+  <p ng-show="temp>=17">Not too bad! {{temp}} degrees, {{temp - 10}} would be a little cold</p>
+  <p ng-show="temp<17">{{temp}} degrees, is a little chilly, {{temp + 10}} would be a nicer</p>
+ -->
+  Current temperature: <input ng-model='temp' type='number'/> Celcius
+   <p ng-show="temp>=17">Not too bad! {{ temp }} degrees, {{ temp - 10 }}
+   would be a little cold</p>
+   <p ng-show="temp<17">{{ temp }} degrees, is a little chilly, {{ temp +
+   10 }} would be a nicer</p>
+   <input type="button" ng-click="save()" value="save"/>

@@ -1,23 +1,21 @@
 <!DOCTYPE html>
-<html ng-app="Guidebook">
+<html ng-app="tempApp">
   <head>
-    <script src='../vendor/angular.min.js'></script>
-    <script src='../scripts/app.js'></script>
-    <script src='../scripts/controller/ChapterController.js'></script>
-    <script src='../scripts/controller/NotesControllers.js'></script>
-    <script src='../scripts/model/NoteModel.js'></script>
-    <script src='../scripts/model/ChapterModel.js'></script>
-    <script src='../scripts/view/directives/NoteList.js'></script>
-    <link href='../styles/style.css' rel='stylesheet'>
     {% block head %}
     {% endblock %}
-    <title>AngularJS Starter Guidebook</title>
+    <title>AngularJS</title>
+    <link rel="stylesheet" type="text/css" href="../dist/style.css">
   </head>
   <body>
-    <section id="content">
-      {% block content %}
-        <p>Missing content!</p>
-      {% endblock %}
-    </section>
+    <ul class="menu">
+         <li><a href="#/current">Current</a></li>
+         <li><a href="#/history">History</a></li>
+    </ul>
+    <div ng-view></div>
+    {% block content %}
+      <p>Missing content!</p>
+    {% endblock %}
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
+    <script src='../dist/app.js'></script>
   </body>
 </html>

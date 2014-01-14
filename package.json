@@ -10,7 +10,9 @@
     "swig": "~1.2.2",
     "koa-logger": "~1.1.0",
     "koa-route": "~1.0.2",
-    "koa-static": "~1.4.2"
+    "koa-static": "~1.4.2",
+    "gulp-autoprefixer": "0.0.4",
+    "gulp-concat": "~2.1.7"
   },
   "scripts": {
     "test": "NODE_ENV=test make test"
@@ -18,5 +20,9 @@
   "engines": {
     "node": ">= 0.11.9"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "~3.3.2",
+    "gulp-util": "~2.2.9"
+  }
 }
