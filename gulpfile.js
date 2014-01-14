@@ -18,8 +18,8 @@ gulp.task('watch', function() {
 // Prefix Task
 gulp.task('prefix', function() {
   gulp.src('app/public/styles/*.css')
-  .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
-  .pipe(gulp.dest('./app/public/dist/'));
+    .pipe(prefix("last 2 versions", "> 1%", "ie 8", "ie 7"))
+    .pipe(gulp.dest('./app/public/dist/'));
 });
 
 // Concat Task
